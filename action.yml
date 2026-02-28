@@ -1,0 +1,41 @@
+name: 'Env Audit'
+description: 'Audit environment variables in your codebase — find missing, unused, and undocumented env vars on every PR'
+author: 'Oneiro (oneiro-dev@proton.me)'
+
+branding:
+  icon: 'shield'
+  color: 'purple'
+
+inputs:
+  directory:
+    description: 'Directory to scan (default: repository root)'
+    required: false
+    default: '.'
+  env-file:
+    description: 'Comma-separated list of env files to check (default: auto-detect)'
+    required: false
+    default: ''
+  strict:
+    description: 'Fail on unused variables too (not just missing)'
+    required: false
+    default: 'false'
+  comment:
+    description: 'Post a PR comment with results'
+    required: false
+    default: 'true'
+  fail-on-missing:
+    description: 'Fail the check if required vars are missing'
+    required: false
+    default: 'true'
+
+outputs:
+  missing:
+    description: 'Number of missing environment variables'
+  unused:
+    description: 'Number of unused environment variables'
+  documented:
+    description: 'Number of properly documented variables'
+
+runs:
+  using: 'node20'
+  main: 'index.js'
