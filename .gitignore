@@ -1,0 +1,3 @@
+# Don't ignore node_modules — GitHub Actions need them committed
+!node_modules/
+.DS_Store
